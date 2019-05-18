@@ -12,3 +12,5 @@ Script 4: Sauvegarde quotidienne de nuit des données de chaque poste client dan
 # Etapes à suivre :
 
 Script 1: lors du lancement du script dans PowerShell, il est demandé de saisir le chemin du fichier .csv.
+
+Script 2: 
