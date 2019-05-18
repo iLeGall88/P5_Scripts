@@ -36,7 +36,7 @@ Add-Content -Path $fichier -Value $Value
 echo "Résultat de la commande extraite dans le fichier .txt pour les groupes dont un utilisateur est membre"
 }
 
-#Sinon, envoyer un message d'erreur
+#Sinon, envoyer le retour de l'erreur dans un fichier log.txt
 Catch
 {
     Write-Host -Fore 'Red' "Une erreur est survenue :`n $($Error[0])"
@@ -44,5 +44,5 @@ Catch
 
     $Host.SetShouldExit(1)
     }
-
+#Cette commande effiche un retour d'erreur (0=pas d'erreur ou 1=erreur)
 Exit $LASTEXITCODE
