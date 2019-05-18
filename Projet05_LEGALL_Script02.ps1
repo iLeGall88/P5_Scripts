@@ -32,7 +32,7 @@ $users = Get-ADGroupMember -Identity $groupName
   Try {
     $users = Get-ADGroupMember -Identity $groupName
     Add-Content -Path $chemin -Value $users
-    echo "Liste des utilisateurs exportée dans le fichier .txt"
+    echo "Liste des utilisateurs exportée dans C:\AD_Users\Projet05_LEGALL_AD02.txt"
     }
 #Sinon, envoyer le résultat de l'erreur dans un fichier log.txt
   Catch {
