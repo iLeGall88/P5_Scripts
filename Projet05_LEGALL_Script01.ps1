@@ -1,10 +1,10 @@
 ﻿### Création d'un utilisateur ainsi qu'un dossier partagé à son nom ###
 
-## Prélablement, taper les commandes suivantes avant de continuer:
+## Prélablement, taper les commandes suivantes avant de continuer (décommenter si besoin):
 # Set-Execution Policy|Unrestricted pour autoriser l'execution du script
 #Import-Module ActiveDirectory pour importer le module Active Directory
 
-#Demander le chemin du fichier entrée et sortie
+#Demander à l'utilisateur le chemin du fichier entrée et sortie
 $filepath = Read-Host -Prompt "Entrez le chemin d'accès au fichier CSV"
 $File_Log = "C:\Scripts\Logs\Error_Script1_Log.txt"
 
@@ -33,7 +33,7 @@ ForEach($User in $Users)
       'homedirectory'         = "\\SRVACMEPAR01\ACME_Users\$($user.samAccountName)"
        
        }
-  #Essayer
+  #Essayer cette commande
   Try{
         #Commande 1: on crée le dossier de l'utilisateur dans le serveur
        New-Item -ItemType directory \\SRVACMEPAR01\ACME_Users\$($user.samAccountName)
@@ -41,11 +41,12 @@ ForEach($User in $Users)
        New-ADUser @Parameters
        echo "Compte utilisateur créé pour $Displayname"
        }
-  #Sinon  
+  #Sinon, envoyer le résultat de l'erreur dans un fichier log.txt  
   Catch{
         Write-Host -Fore 'Green' "L'utilisateur $DisplayName n'a pu être ajouté avec succès"
         echo "Une erreur est survenue :`n $($Error[0])" > $File_Log
     $Host.SetShouldExit(1)
         }
 }
+#Cette variable est un retour d'erreur (0=pas d'erreur ou 1=erreur)
 Exit $LASTEXITCODE
