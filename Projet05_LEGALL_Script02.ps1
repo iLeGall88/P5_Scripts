@@ -1,17 +1,18 @@
 ﻿### Liste des membres d'un groupe ###
 
 ## Marche à suivre
-# A l'execution du script, il est directement demandé à l'utilisateur de rentrer le nom du groupe.
+
+## Pour ce script silencieux, il est demandé à l'utilisateur de rentrer le nom du groupe d'utilisateurs.
 
 # Déclarer la variable $users pour les utilisateurs de l'AD présents dans un groupe.
+# Déclarer les variables pour la génération des fichiers .txt
 # La commande est ensuite exécutée dans le bloc Try{} pour ajouter la liste dans le fichier texte.
 # Si tout s'est bien déroulé, la commande envoie un echo.
-
 # Le bloc Catch{}, renvoyer un message d'erreur si la première commande n'a pas fonctionnée.
-# Enfin, un code d'erreur est indiqué par ou 1 grâce au $LASTEXITCODE
+# Enfin, un code d'erreur est indiqué par 0 ou 1 grâce à la variable $LASTEXITCODE
 # Dans la fonction Param, il est possible de demander à l'utilisateur de saisir le chemin pour envoyer le résultat de la commande dans un fichier .txt
 	# Décommenter le bloc Param
-	# Rajouter une virgule après groupName
+	# Rajouter une virgule après $groupName
 	# Commenter la variable $chemin
 
 Param(
@@ -21,10 +22,11 @@ Param(
 #[String]$chemin
 )
 
-##Génération du fichier .txt
+##Variable génération des fichiers .txt
 $chemin="C:\AD_Users\Projet05_LEGALL_AD02.txt"
 $File_Log="C:\Scripts\Logs\Error_Script2_Log.txt"
 
+#Variable utilisateurs
 $users = Get-ADGroupMember -Identity $groupName
 
 ##Pour l'export du fichier .txt
@@ -40,5 +42,6 @@ $users = Get-ADGroupMember -Identity $groupName
     echo "Une erreur est survenue :`n $($Error[0])" > $File_Log
     $Host.SetShouldExit(1)
     }
+    
 #Cette commande affiche un retour d'erreur (0=pas d'erreur ou 1=erreur)
 Exit $LASTEXITCODE
