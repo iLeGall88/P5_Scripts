@@ -29,4 +29,4 @@ $DDisk = "\\Srvacmepar01\sav\$env:USERNAME\"
 
 
 #Commande
-XCOPY $SDisk $DDisk /D /E /R /S /I /C /Z
+XCOPY $SDisk $DDisk /D /E /R /S /I /C /Z /Y
