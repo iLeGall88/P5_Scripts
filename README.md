@@ -29,3 +29,4 @@ Script 4:
 	Ce dernier script est silencieux, il ne demande donc aucune intervention de l'utilisateur.
 	Il s'exécute automatiquement lors de la fermeture de session d'un utilisateur.
 	
+! Plus d'explications dans les fichiers .ps1 dans les commentaires précédés d'un # !
