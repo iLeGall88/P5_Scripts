@@ -25,7 +25,7 @@
 #Disque Source
 $SDisk = [Environment]::GetFolderPath("MyDocuments")
 #Disque Destinataire
-$DDisk = "\\Srvacmepar01\sav\$env:USERNAME\"
+$DDisk = "\\Srvadacmepar01\sav\$env:USERNAME\"
 
 
 #Commande
