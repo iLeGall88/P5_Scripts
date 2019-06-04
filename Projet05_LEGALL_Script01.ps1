@@ -30,13 +30,13 @@ ForEach($User in $Users)
       'Enabled'               = $true 
       'Department'            = $user.department
       'homedrive'             = "E"
-      'homedirectory'         = "\\SRVACMEPAR01\ACME_Users\$($user.samAccountName)"
+      'homedirectory'         = "\\SRVADACMEPAR01\ACME_Users\$($user.samAccountName)"
        
        }
   #Essayer cette commande
   Try{
         #Commande 1: on crée le dossier de l'utilisateur dans le serveur
-       New-Item -ItemType directory \\SRVACMEPAR01\ACME_Users\$($user.samAccountName)
+       New-Item -ItemType directory \\SRVADACMEPAR01\ACME_Users\$($user.samAccountName)
         #Commande 2: on ajoute l'utilisateur dans l'AD
        New-ADUser @Parameters
        echo "Compte utilisateur créé pour $Displayname"
