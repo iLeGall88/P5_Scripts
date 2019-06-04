@@ -16,6 +16,7 @@
     #/I = Si la destination n'existe pas et que plus d'un fichier est copié, considére la destination comme devant être un répertoire. 
     #/C = Continue la copie même si des erreurs se produisent.
     #/Z = Copie les fichiers du réseau en mode redémarrable.
+    #/Y = Supprime la demande de confirmation de remplacement de fichiers de destination existants. Peut être pré-réglé dans la variable d'environnement COPYCMD.
 
 # Après avoir codé le script, créer une GPO pour exécuter automatiquement le script
 # Cette GPO se trouve dans: Utilisateurs/Stratégies/Paramètres Windows/Script (ouverture/fermeture de session), puis dans l'onglet "Script Powershell".
